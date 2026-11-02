@@ -1,0 +1,44 @@
+# Private runtime, caches, credentials, and local environments
+.runtime/
+.conda/
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# Private/sensitive data and generated artifacts
+data/raw/
+data/downloads/
+data/interim/
+data/processed/
+models/*
+!models/.gitkeep
+logs/*
+!logs/.gitkeep
+reports/*.tmp
+reports/*private*
+reports/*raw*
+reports/*audit*.json
+*.ckpt
+*.pt
+*.pth
+*.pkl
+*.joblib
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+src/*.egg-info/
+reports/environment-installed.txt
+reports/preflight.json
+src/*.egg-info/
+reports/environment-installed.txt
+reports/preflight.json
+
+# Temporary NFS files
+**/.nfs*

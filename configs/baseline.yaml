@@ -1,0 +1,19 @@
+project_name: k12-misconception-mlops
+competition_slug: misconception-detection-in-k-12-student-math-workings
+seed: 42
+validation:
+  strategy: group_question
+  test_size: 0.20
+metric:
+  primary: map_at_3
+  secondary: [accuracy_at_1, recall_at_3, none_precision, none_recall, false_alarm_rate_on_none]
+training:
+  model: tfidf_char_logistic_regression
+  # Deliberately restricted to inference-time available metadata.
+  allowed_features: [question_text, correct_answer, topic_name, grade]
+  forbidden_at_inference: [root_code, transcription_steps, final_answer_correct, clean, misconceptions]
+  max_features: 30000
+  ngram_range: [2, 4]
+  c: 0.5
+  max_iter: 400
+  class_weight: balanced
